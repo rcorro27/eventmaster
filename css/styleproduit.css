@@ -1,0 +1,684 @@
+/*Mobile: 480px de large
+Tablette: 768px de large
+Desktop: 1280px de large*/
+
+body {
+    cursor: pointer;
+}
+
+ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+@font-face {
+    font-family: 'fontrueregular';
+    src: url('../webfontkit-20200218-181226/fontrue-webfont.woff2') format('woff2'), url('../webfontkit-20200218-181226/fontrue-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+}
+
+h4, h1, a, label, h2, h6 {
+    font-family: 'fontrueregular';
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+
+::placeholder, input {
+    font-family: 'fontrueregular';
+    color: white;
+    font-size: 15px;
+}
+
+main {
+    display: inline-block;
+    margin-top: 16vh;
+}
+
+.indexMain {
+    display: flex;
+    justify-content: space-between;
+}
+
+article {
+    display: inline-block;
+    width: 90%;
+    margin-left: 2%;
+    border: 1px solid gray;
+    border-radius: 8%;
+    text-align: center;
+    margin-top: 6%;
+    box-shadow: 0 0 5px 1px grey;
+    background-color: #9e9e9e38;
+}
+
+section {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+a:active {
+    color: black;
+}
+
+a:hover {
+    background-color: darkslategrey;
+}
+
+a:visited {
+    color: blue;
+}
+
+article>img {
+    width: 100%;
+    border-radius: 8% 8% 0% 0%;
+}
+
+.mainproduit {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    align-content: center;
+    margin-top: 16vh;
+}
+
+/*-------------------------------------------------------contact+iframe-------------------------------------------------------------------------------*/
+
+.radiobtn {
+    display: flex;
+    font-size: 24px;
+    padding: 2%;
+    justify-content: space-around;
+    line-height: 2vh;
+}
+
+.contact-form {
+    width: 100%;
+    padding: 0% 2%;
+    overflow: hidden;
+    height: 100vh
+}
+
+.contact-form-text {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1% 0%;
+    border: 0;
+    background: #111;
+    padding: 4% 9%;
+    outline: none;
+    color: #ddd;
+    transition: 0.5s;
+}
+
+.contact-form-text:focus {
+    box-shadow: 0 0 10px #34495e;
+}
+
+textarea.contact-form-text {
+    resize: none;
+    height: 15vh;
+}
+
+.contact-form-btn {
+    float: right;
+    border: 0;
+    background: #34495e;
+    color: #fff;
+    padding: 2.5% 10%;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.contact-form-btn:hover {
+    background: white;
+    color: black;
+}
+
+#iframe {
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+#contact {
+    grid-area: 2 / 1 / 2 / 1;
+}
+
+#telephonecontact {
+    grid-area: 3 / 1 / 3 / 1;
+}
+
+#reseaux {
+    grid-area: 4 / 1 / 4 / 1;
+}
+
+.iframecadre {
+    width: 93%;
+    height: 53vh;
+}
+
+#contactcadre {
+    width: 93%;
+    height: 75vh;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+iframe {
+    width: 100%;
+    height: 37vh;
+    border: 2px solid gray;
+    border-radius: 1% 1% 1% 1%;
+}
+
+.imageproduitseule {
+    width: 100%;
+    height: 32vh;
+    border-radius: 1% 1% 1% 1%;
+}
+
+.cadre {
+    width: 43%;
+    font-size: 26px;
+}
+
+.cadre>ul {
+    list-style-type: none;
+}
+
+@media only screen and (min-width:768px) {
+    article {
+        width: 40%;
+    }
+    .mainproduit {
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+    #iframe {
+        grid-area: 1 / 1 / 1 / 1;
+    }
+    #contact {
+        grid-area: 1 / 2 / 1 / 2;
+    }
+    #telephonecontact {
+        grid-area: 2 / 1 / 2 / 2;
+    }
+    #reseaux {
+        grid-area: 2 / 2 / 2 / 2;
+    }
+    #contactcadre {
+        height: 75vh;
+    }
+}
+
+@media only screen and (min-width:1280px) {
+    article {
+        width: 20%;
+    }
+    #contactcadre {
+        height: 95vh;
+    }
+    iframe {
+        height: 45vh;
+    }
+}
+
+/*      -------------------------------COLLAPSE MENU PRODUITS -------------------------------------------------------------------                               */
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.lbl-toggle {
+    display: block;
+    font-family: 'fontrueregular';
+    font-weight: bold;
+    color: black;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    background-color: #9e9e9e38;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+    background-color: darkslategrey;
+    color: white;
+}
+
+/*cree le triangle*/
+
+.lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+    transition: transform .2s ease-out;
+}
+
+.collapsible-content .content-inner {
+    background-color: #9e9e9e38;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked+.lbl-toggle+.collapsible-content {
+    max-height: 200vh;
+}
+
+.toggle:checked+.lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked+.lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*-------------------------------------------------COLLAPSED MENU PRODUIT FIN -----------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------css page ACUEILLE a ranger-----------------------------------------------------------*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*                     YAHIA HEADER A VOIR                        */
+
+header {
+    display: flex;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    width: 90%;
+    margin: auto;
+    height: 10vh;
+    align-items: center;
+}
+
+.showmenubtn {
+    display: none;
+}
+
+.showmenubtn {
+    float: right;
+}
+
+.logoimg, .cartimg {
+    margin-top: 12%;
+    height: 25vh;
+}
+
+.logo-container, .nav-links, .cart {
+    display: flex;
+}
+
+.logo {
+    font-weight: 400;
+    margin: 12px;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+nav {
+    margin-top: 100px;
+    flex: 2;
+}
+
+.nav-links {
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav-link {
+    color: #5f5f79;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.presentation {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.introduction {
+    flex: 1;
+}
+
+.introduction h1 {
+    font-size: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right, #494964, #6f6f89);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-text p {
+    margin-top: 5px;
+    font-size: 22px;
+    color: #585772;
+}
+
+.btns {
+    margin: 50px 0px 0px 0px;
+}
+
+.searchtxt {
+    border: none;
+    outline: none;
+    width: 0;
+}
+
+.searchbox:hover>.searchtxt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.addbtn {
+    border: 2px solid #c36cbb;
+    background: transparent;
+    color: #c36cbb;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.removebtn {
+    background: #c36cbb;
+    color: white;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    margin-left: 30px;
+}
+
+.cover {
+    flex: 1;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.cover img {
+    height: 100%;
+    filter: drop-shadow(0px 5px 3px black);
+    animation: drop 1.5s ease;
+}
+
+.bigimage {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.mdimage {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    z-index: -1;
+    opacity: 0.4;
+    height: 40%;
+}
+
+.smimage {
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+    z-index: -1;
+    height: 40%;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#slider {
+    width: 512px;
+    /* on définit une largeur du slider afin de le centrer */
+    height: 284px;
+    /* on définit la hauteur du slider */
+    margin: auto;
+    /* on centre le slider */
+    overflow: hidden;
+    /* on évite que le contenu qui déborde soit visible. Si on l'enlève, on voit toutes les images */
+}
+
+#slider #slider-container {
+    position: relative;
+    /* on applique une position relative sur le conteneur des images pour les animer ensuite avec la propriété left */
+    width: 500%;
+    /* on définit la largeur du conteneur des images */
+    animation: 15s slidy infinite;
+    /* on applique l'animation slidy pendant 15 secondes avec un loop infini */
+}
+
+#slider #slider-container img {
+    width: 20%;
+    /* on applique une largeur de 20% (100% / 5 images = 20%) et on place les images les unes à côté des autres */
+    float: left;
+}
+
+@keyframes slidy {
+    0% {
+        left: 0%;
+    }
+    15% {
+        left: 0%;
+    }
+    20% {
+        left: -100%;
+    }
+    /* chaque image est déplacée de 100% vers la gauche du conteneur */
+    35% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    55% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    75% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    100% {
+        left: -400%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .logoimg {
+        margin-top: 16vh;
+        height: 30%;
+        width: 30%;
+        border-radius: 50%;
+    }
+    .presentation {
+        flex-direction: column;
+    }
+    .introduction {
+        margin-top: 5vh;
+        text-align: center;
+    }
+    .intro-text h1 {
+        font-size: 30px;
+    }
+    .intro-text p {
+        font-size: 18px;
+    }
+    .btns {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .cover img {
+        height: 80%;
+    }
+    .showmenubtn {
+        display: block;
+        cursor: pointer;
+    }
+    .footer-container {
+        max-width: 600px;
+    }
+    .right-col {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    .right-col {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and(max-width:700px) {
+    input.btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+footer {
+    background: #f1f1f1;
+    padding: 90px 0;
+    height: 10vh;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 8%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+
+.socialmedia {
+    margin: 20px 0;
+}
+
+.socialmedia a {
+    color: #001a21;
+    margin-right: 25px;
+    font-size: 22px;
+    text-decoration: none;
+    transition: .3 linear;
+}
+
+.socialmedia a :hover {
+    color: #fc5c65;
+}
+
+.right-col h1 {
+    font-size: 25px;
+}
+
+.facebook {
+    width: 20px;
+}
+
+.border {
+    width: 100px;
+    height: 5px;
+    background: #fc5c65;
+}
+
+newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.right-col {
+    animation: drop 1.5s ease;
+}
+
+.txtb {
+    flex: 1;
+    padding: 18px 40px;
+    font-size: 16px;
+    color: #293043;
+    background: #ddd;
+    border: none;
+    font-weight: 700;
+    outline: none;
+    border-radius: 30px;
+    min-width: 260px;
+    margin-bottom: 10px;
+}
+
+.logofooter {
+    width: 80px;
+}
+
+.btn {
+    padding: 18px 40px;
+    font-size: 16px;
+    color: #f1f1f1;
+    background: #fc5c65;
+    border: none;
+    font-weight: 700;
+    outline: none;
+    border-radius: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: opacity .3s linear;
+}
+
+.left-col {
+    display: flex;
+}
+
+.socialmedia {
+    display: flex;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
